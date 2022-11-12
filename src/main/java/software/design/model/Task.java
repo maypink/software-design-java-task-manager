@@ -1,9 +1,16 @@
 package software.design.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
 import javax.validation.constraints.NotBlank;
 import java.util.Date;
 import java.util.UUID;
 
+@Getter
+@AllArgsConstructor
+@RequiredArgsConstructor
 public class Task {
 
     private UUID id;
@@ -13,7 +20,7 @@ public class Task {
 
     private String description;
 
-    private Date dateCreated;
+    final private Date dateCreated;
 
     private TaskStatus status;
 
