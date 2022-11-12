@@ -9,7 +9,7 @@ import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
-@Table(name = "student")
+@Table(name = "students")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -19,10 +19,14 @@ public class StudentEntity {
     @Id
     @GeneratedValue
     private UUID id;
+
     private String name;
+
     private String surname;
+
     private boolean expelled;
+
     @ManyToOne
-    @JoinColumn(name = "group_id")
+    @JoinColumn(name = "group_id", referencedColumnName = "id")
     private GroupEntity group;
 }

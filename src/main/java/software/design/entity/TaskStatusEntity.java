@@ -10,12 +10,12 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Table(name = "university_groups") // group is a reserved keyword
+@Table(name = "task_statuses")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class GroupEntity {
+public class TaskStatusEntity {
 
     @Id
     @GeneratedValue
@@ -24,6 +24,6 @@ public class GroupEntity {
     @Column(unique = true)
     private String name;
 
-    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "group")
-    private List<StudentEntity> students;
+    @OneToMany(mappedBy = "status")
+    private List<TaskEntity> tasks;
 }
