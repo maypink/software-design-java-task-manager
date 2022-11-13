@@ -1,23 +1,30 @@
 package software.design.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
-public class Project {
-    private UUID id;
+@AllArgsConstructor
+@RequiredArgsConstructor
+public record Project(
+    UUID id,
 
     @NotBlank
-    private String name;
+    String name,
 
-    private String description;
+    String description,
 
-    private Date dateCreated;
+    Date dateCreated,
 
-    private User user;
+    User user,
 
     @NotNull
-    private List<Task> tasks;
-}
+    List<Task> tasks
+)
+{}
